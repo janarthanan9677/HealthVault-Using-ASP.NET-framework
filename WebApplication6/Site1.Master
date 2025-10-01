@@ -1,0 +1,156 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication6.Site1" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>RKHospital - Patient Monitoring System</title>
+
+    <style >
+        /* Reset defaults */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            /* Body */
+            body {
+                background-color: #f7fafc;
+                color: #333;
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            /* Header */
+            .header {
+                background: linear-gradient(90deg, #0066cc, #004c99);
+                color: white;
+                padding: 15px 30px;
+                display: flex;
+                align-items: center;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            }
+
+            .header .logo {
+                height: 50px;
+                margin-right: 20px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+                font-weight: bold;
+                letter-spacing: 1px;
+            width: 825px;
+        }
+
+            /* Navigation */
+            .nav {
+              
+                padding: 0 20px;
+                
+                
+            }
+
+            .nav ul {
+                list-style: none;
+                display: flex;
+                justify-content: flex-start;
+                gap: 20px;
+                padding: 10px 0;
+            }
+
+            .nav a, .nav .aspNetMenuItem {
+                color: white !important;
+                text-decoration: none;
+                font-weight: 500;
+                padding: 10px 15px;
+                transition: all 0.3s ease;
+            }
+
+            .nav a:hover, .nav .aspNetMenuItem:hover {
+                background-color: darkblue;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                border-radius: 6px;
+                color: #ffdd00 !important;
+            }
+
+            /* Content Area */
+            .content {
+                width: 100%;
+                background: white;
+                border-radius: 8px;
+                padding: 30px;
+                box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+                min-height: 70vh;
+            }
+
+            /* Footer */
+            .footer {
+                background-color: #0066cc;
+                color: white;
+                text-align: center;
+                padding: 15px;
+                font-size: 14px;
+                border-top: 4px solid #004c99;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .header {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .header .logo {
+                    margin-bottom: 10px;
+                }
+
+                .nav ul {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+                }
+            }
+
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <div class="header">
+            <table class="auto-style1">
+                <tr>
+                    <td>
+            <img src="/Images/logo.png" alt="RK Hospital Logo" class="logo" />
+                    </td>
+                    <td>
+            <h1>RK Hospital</h1>
+                    </td>
+                    <td>
+                        <div class="nav">
+                            <asp:Menu ID="MainMenu" runat="server" Orientation="Horizontal" OnMenuItemClick="MainMenu_MenuItemClick" SkipLinkText="">
+                            <Items>
+                                <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/pages/Default.aspx" />
+                                <asp:MenuItem Text="Aboutus" Value="Admin" NavigateUrl="~/pages/Default.aspx#about" />
+                                <asp:MenuItem Text="Contactus" Value="Doctor" NavigateUrl="~/pages/Default.aspx#contact" />
+                                <asp:MenuItem Text="Login" Value="Login" NavigateUrl="~/pages/Login.aspx" />
+                            </Items>
+                                </asp:Menu>
+                        </div>
+                    </td>
+                </tr>           
+            </table>
+</div>
+
+        
+
+        <div class="content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <div class="footer">
+            &copy; 2025 RKHospital. All rights reserved.
+        </div>
+    </form>
+</body>
+</html>
